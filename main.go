@@ -4,33 +4,22 @@ import "fmt"
 
 func main() {
 
-	// String  declatration examples
-	fmt.Println("Hello, friends!")
-	var nameOne string = "Andy"
-	var nameTwo = "Danny"
+	//var ages [3]int = [3]int{20, 25, 30}
+	var ages = [3]int{20, 25, 30}
 
-	// This will just store and empty string for now
-	var nameThree string
+	names := [4]string{"Andy", "Danny", "Chelsey", "Alaina"}
 
-	// You can declare varibles like this "in" functions
-	nameFour := "Alaina"
+	fmt.Println(names, len(names))
+	fmt.Println(ages, len(ages))
 
-	fmt.Println(nameOne, nameTwo, nameThree, nameFour)
+	// Slices ( Bascially resizable arrays )
+	var scores = []int{100, 200, 300}
+	scores = append(scores, 85)
+	fmt.Println(scores)
 
-	// Ints
-	var ageOne int = 27
-	var ageTwo int = 25
-	ageThree := 29
-
-	fmt.Println(ageOne, ageTwo, ageThree)
-
-	// Floats ( you must say what the size of the float you want to use is )
-	var scoreOne float32 = 25.98
-	var scoreTwo float64 = 8881245621
-
-	// unless you use this ( it sets it to 64 any ways)
-	scoreThree := 123456.123456
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
-
+	// Slice Ranges ( Grabbs a range of values in the slice )
+	rangeOne := names[1:3]  // from one up to 3 but not 3
+	rangeTwo := names[:3]   // from start up to 3 but not 3
+	rangeThree := names[0:] // from 0 to end
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
 }
