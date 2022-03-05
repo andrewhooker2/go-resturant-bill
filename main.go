@@ -1,25 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
+	// greeting := "Hi new Go Dev!"
 
-	//var ages [3]int = [3]int{20, 25, 30}
-	var ages = [3]int{20, 25, 30}
+	// fmt.Println(strings.Contains(greeting, "Hi"))
+	// fmt.Println(strings.ReplaceAll(greeting, "Hi", "Yo!"))
+	// fmt.Println(strings.ToUpper(greeting))
+	// fmt.Println(strings.Index(greeting, "ev"))
+	// fmt.Println(strings.Split(greeting, " "))
+	// fmt.Println(greeting)
 
-	names := [4]string{"Andy", "Danny", "Chelsey", "Alaina"}
+	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
+	names := []string{"Chelsey", "Andy", "Danny", "Alaina", "Honey"}
+	fmt.Println("Unsorted Ages: ", ages)
+	fmt.Println("Unsorted Names: ", names)
 
-	fmt.Println(names, len(names))
-	fmt.Println(ages, len(ages))
+	sort.Ints(ages)
+	fmt.Println("Sorted ages slice: ", ages)
 
-	// Slices ( Bascially resizable arrays )
-	var scores = []int{100, 200, 300}
-	scores = append(scores, 85)
-	fmt.Println(scores)
+	index := sort.SearchInts(ages, 30)
+	fmt.Println("Searching sorted ages for 30: ", index)
 
-	// Slice Ranges ( Grabbs a range of values in the slice )
-	rangeOne := names[1:3]  // from one up to 3 but not 3
-	rangeTwo := names[:3]   // from start up to 3 but not 3
-	rangeThree := names[0:] // from 0 to end
-	fmt.Println(rangeOne, rangeTwo, rangeThree)
+	sort.Strings(names)
+	fmt.Println("Sorted names slice: ", names)
+	nameIndex := sort.SearchStrings(names, "Andy")
+	fmt.Println("Searching for Andy: ", nameIndex)
+
 }
